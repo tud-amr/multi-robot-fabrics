@@ -7,4 +7,4 @@ Dynamic Optimization Fabrics".
 Video:
 
 ## Teaser
-!\[Alt Text\](assets/video_rf_cv_2robots.gif)
+<img src="assets/video_rf_cv_2robots.gif" alt="2 Robots applying RF">
