@@ -20,9 +20,9 @@ This repository allows the application of multi-robot-fabrics
   <td> Non-Holonomic Robot </td>
  </tr>
  <tr>
-  <td> <img src="/assests/2panda_scenario" width="250" height="250"/> </td>
-  <td> <img src="/assests/2panda_scenario" width="250" height="250"/> </td>  
-  <td> <img src="/assests/2panda_scenario" width="250" height="250"/> </td>
+  <td> <img src="/assets/2panda_scenario.png" width="250" height="250"/> </td>
+  <td> <img src="/assets/2panda_scenario.png" width="250" height="250"/> </td>  
+  <td> <img src="/assets/2panda_scenario.png" width="250" height="250"/> </td>
  </tr>
 </table>
 
