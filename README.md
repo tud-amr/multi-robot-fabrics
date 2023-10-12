@@ -13,6 +13,19 @@ A **video** showcasing the presented approach can be found [here](https://www.yo
 ## Options
 This repository allows the application of multi-robot-fabrics
 
+<table>
+ <tr>
+  <td> Point Robot </td>
+  <td> Point Robot with Keyboard Input </td>
+  <td> Non-Holonomic Robot </td>
+ </tr>
+ <tr>
+  <td> <img src="/assests/2panda_scenario" width="250" height="250"/> </td>
+  <td> <img src="/assests/2panda_scenario" width="250" height="250"/> </td>  
+  <td> <img src="/assests/2panda_scenario" width="250" height="250"/> </td>
+ </tr>
+</table>
+
 ## Installations
 You can install the package using poetry. For more details see the [installation instructions](docs/installation.md).
 
