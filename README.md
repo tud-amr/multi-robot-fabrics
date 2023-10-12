@@ -11,18 +11,19 @@ A **video** showcasing the presented approach can be found [here](https://www.yo
 <img src="assets/video_rf_cv_2robots.gif" alt="2 Robots applying RF">
 
 ## Options
-This repository allows the application of multi-robot-fabrics
+This repository includes examples of the application of multi-robot fabrics to Point Robots and Panda robotic arms.
+
 
 <table>
  <tr>
   <td> Point Robot </td>
-  <td> Panda  </td>
-  <td> Non-Holonomic Robot </td>
+  <td> 2 Panda Scenario  </td>
+  <td> 3 Panda Scenario </td>
  </tr>
  <tr>
   <td> <img src="/assets/4pointmasses.png" width="250"/> </td>
   <td> <img src="/assets/2panda_scenario.png" width="250"/> </td>  
-  <td> <img src="/assets/2panda_scenario.png" width="250"/> </td>
+  <td> <img src="/assets/3panda_scenario.png" width="250"/> </td>
  </tr>
 </table>
 
