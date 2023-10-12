@@ -26,6 +26,9 @@ Enter the virtual environment using:
 Requirements can be found in [pyproject.toml](pyproject.toml). 
 
 ## Usage
+In the folder `multi_robot_fabrics` run
+
+    python examples/<example-file-name>
     
 ## Explanation
 This project should be set up with poetry. Installation instructions are provided in the docs folder.
