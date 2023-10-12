@@ -1,7 +1,6 @@
 # multi-robot-fabrics
 
-Implementation of multi-robot-fabrics presented in our MRS 2023 paper **"Multi-Robot Local Motion Planning Using  
-Dynamic Optimization Fabrics"**.
+Implementation of multi-robot-fabrics presented in our MRS 2023 paper **"Multi-Robot Local Motion Planning Using Dynamic Optimization Fabrics"**.
 
 The current version of the paper can be cited using the following reference:
 
@@ -14,8 +13,21 @@ A **video** showcasing the presented approach can be found [here](https://www.yo
 ## Options
 This repository allows the application of multi-robot-fabrics
 
+<table>
+ <tr>
+  <td> Point Robot </td>
+  <td> Point Robot with Keyboard Input </td>
+  <td> Non-Holonomic Robot </td>
+ </tr>
+ <tr>
+  <td> <img src="/assests/2panda_scenario" width="250" height="250"/> </td>
+  <td> <img src="/assests/2panda_scenario" width="250" height="250"/> </td>  
+  <td> <img src="/assests/2panda_scenario" width="250" height="250"/> </td>
+ </tr>
+</table>
+
 ## Installations
-You can install the package using poetry. For more details see the [installation instructions](docs/installation.md)
+You can install the package using poetry. For more details see the [installation instructions](docs/installation.md).
 
     install poetry
 
@@ -29,6 +41,8 @@ Requirements can be found in [pyproject.toml](pyproject.toml).
 In the folder `multi_robot_fabrics` run
 
     python examples/<example-file-name>
+
+E.g. to run the panda example `python examples/panda_panda_multifabrics.py`.
     
 ## Explanation
 This project should be set up with poetry. Installation instructions are provided in the docs folder.
@@ -50,4 +64,6 @@ Parameters of the two and three panda case are constructed in 'parameters_manipu
 
 Academic licences of forcespro can be requested via embotech.com.
 
+## Troubleshooting
 
+If you run into problems of any kind, do not hesitate to open an issue on this repository.
