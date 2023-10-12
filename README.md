@@ -7,7 +7,6 @@ The current version of the paper can be cited using the following reference:
 
 A **video** showcasing the presented approach can be found [here](https://www.youtube.com/@amrlab).
 
-We provide detailed **installation** instructions [here](docs/installation.md).
 
 ## Teaser
 <img src="assets/video_rf_cv_2robots.gif" alt="2 Robots applying RF">
@@ -15,6 +14,16 @@ We provide detailed **installation** instructions [here](docs/installation.md).
 ## Options
 This repository allows the application of multi-robot-fabrics
 
+## Usage
+You can install the package using poetry. For more details see the [installation instructions](docs/installation.md)
+
+    install poetry
+
+Enter the virtual environment using:
+
+    poetry shell
+
+    
 ## Explanation
 This project should be set up with poetry. Installation instructions are provided in the docs folder.
 
