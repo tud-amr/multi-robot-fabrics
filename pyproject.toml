@@ -1,0 +1,30 @@
+[tool.poetry]
+name = "multifabrics"
+version = "0.1.0"
+description = ""
+authors = ["Saray Bakker <saraybakker@gmail.com>"]
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = "^3.8, <3.10"
+matplotlib = "^3.7.1"
+texttable = "^1.6.6"
+latextable ="^1.0.0"
+fabrics = "0.8.6"
+urdfenvs = "^0.8.6"
+forwardkinematics = "^1.1.4"
+casadi = "<3.6"
+seaborn = "^0.12.2"
+pytest = "^7.4.0"
+pylint = "^2.17.5"
+pytest-cov = "^4.1.0"
+
+[tool.poetry.group.dev]
+optional = true
+
+[tool.poetry.group.dev.dependencies]
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
+
