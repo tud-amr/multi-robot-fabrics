@@ -52,4 +52,4 @@ Academic licences of forcespro can be requested via embotech.com.
 
 ## Troubleshooting
 
-If you run into problems of any kind, don't hesitate to open an issue on this repository.
+If you run into problems of any kind, do not hesitate to open an issue on this repository.
