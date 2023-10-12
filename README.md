@@ -27,17 +27,22 @@ This repository allows the application of multi-robot-fabrics
 </table>
 
 ## Installations
+Clone this repository and go to its root:
+
+    git clone git@github.com:tud-amr/multi-robot-fabrics.git
+    cd multi-robot-fabrics
+    
 You can install the package using poetry. For more details see the [installation instructions](docs/installation.md).
 
     install poetry
 
-Enter the virtual environment using:
-
-    poetry shell
-
 Requirements can be found in [pyproject.toml](pyproject.toml). 
 
 ## Usage
+Enter the virtual environment using:
+
+    poetry shell
+    
 In the folder `multi_robot_fabrics` run
 
     python examples/<example-file-name>
