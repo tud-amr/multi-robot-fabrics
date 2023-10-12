@@ -2,7 +2,11 @@
 name = "fabrics-multi-robot"
 version = "0.1.0"
 description = ""
-authors = ["Saray Bakker <saraybakker@gmail.com>"]
+authors = ["Saray Bakker <saraybakker@gmail.com>", "Luzia Knoedler <l.knoedler@tudelft.nl>", "Max Spahn <m.spahn@tudelft.nl>"]
+maintainers = [
+	"Saray Bakker <saraybakker@gmail.com>",
+  	"Luzia Knoedler <l.knoedler@tudelft.nl>"
+]
 readme = "README.md"
 
 [tool.poetry.dependencies]
