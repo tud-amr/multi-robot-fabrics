@@ -12,6 +12,9 @@ We provide detailed **installation** instructions [here](docs/installation.md).
 ## Teaser
 <img src="assets/video_rf_cv_2robots.gif" alt="2 Robots applying RF">
 
+## Options
+This repository allows the application of multi-robot-fabrics
+
 ## Explanation
 This project should be set up with poetry. Installation instructions are provided in the docs folder.
 
