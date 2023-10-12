@@ -32,7 +32,7 @@ Clone this repository and go to its root:
     git clone git@github.com:tud-amr/multi-robot-fabrics.git
     cd multi-robot-fabrics
     
-You can install the package using poetry. For more details see the [installation instructions](docs/installation.md).
+You can install the package using poetry. For more details on poetry see [installation instructions](docs/installation.md).
 
     install poetry
 
