@@ -49,7 +49,7 @@ class manipulator_parameters():
             for i_other_robot in i_other_robots:
                 for i_sphere in range(self.n_obst_per_link*len(self.collision_links_nrs[i_other_robot])):
                     self.a_dyns_obsts[i_robot] = self.a_dyns_obsts[i_robot] + [np.zeros((3,))] * self.n_obst_per_link  # [a_robots[i_other_robot][i_sphere]] * n_obst_per_link
-                    self.r_dyns_obsts[i_robot] = self.r_dyns_obsts[i_robot] + [self.r_robots[i_other_robot][i_sphere]] * self.n_obst_per_link
+                    self.r_dyns_obsts[i_robot] = self.r_dyns_obsts[i_robot] + [self.r_robots[i_other_robot][i_sphere % len(self.collision_links_nrs[i_other_robot])]]
 
         # --- initialize settings --- #
         self.ROLLOUT_FABRICS = False

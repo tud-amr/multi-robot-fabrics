@@ -4,7 +4,7 @@ import yaml
 sys.path.insert(0, './')
 import copy
 from forwardkinematics.urdfFks.generic_urdf_fk import GenericURDFFk
-from simulation_environments import create_simulation_manipulators
+from examples.simulation_environments import create_simulation_manipulators
 from mpscenes.goals.goal_composition import GoalComposition
 import casadi as ca
 from multi_robot_fabrics.fabrics_planner.forward_planner_symbolic import ForwardFabricsPlanner
@@ -13,7 +13,7 @@ from fabrics.planner.parameterized_planner import ParameterizedFabricPlanner
 from multi_robot_fabrics.others_planner.deadlock_prevention import deadlockprevention
 from multi_robot_fabrics.utils.utils import UtilsKinematics
 from multi_robot_fabrics.others_planner.state_machine import StateMachine
-import parameters_manipulators
+import examples.parameters_manipulators as parameters_manipulators
 
 """
 Two panda example of a pick-and-place task. 
@@ -515,7 +515,7 @@ def run_panda_example(params, n_steps=5000, planners=[], planners_grasp=[], goal
     }
 
 def define_run_panda_example(n_steps=100, render=True):
-    with open("configs/panda_config.yaml", "r") as setup_stream:
+    with open("examples/configs/panda_config.yaml", "r") as setup_stream:
         setup = yaml.safe_load(setup_stream)
     random_scene = False
     nr_robots = setup['n_robots']
