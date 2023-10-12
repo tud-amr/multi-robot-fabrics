@@ -1,18 +1,19 @@
 import time
 import os
+import sys
+sys.path.insert(0, './')
 import copy
 from forwardkinematics.urdfFks.generic_urdf_fk import GenericURDFFk
-from examples.simulation_environments import create_simulation_manipulators
+from simulation_environments import create_simulation_manipulators
 from mpscenes.goals.goal_composition import GoalComposition
 import casadi as ca
 from multi_robot_fabrics.fabrics_planner.forward_planner_symbolic import ForwardFabricsPlanner
-# from multifabrics.planner.state_machine_with_pregrasp import StateMachine
 import numpy as np
 from fabrics.planner.parameterized_planner import ParameterizedFabricPlanner
 from multi_robot_fabrics.others_planner.deadlock_prevention import deadlockprevention
 from multi_robot_fabrics.utils.utils import UtilsKinematics
 from multi_robot_fabrics.others_planner.state_machine import StateMachine
-import examples.parameters_manipulators
+import parameters_manipulators
 
 """
 Two panda example of a pick-and-place task. 
@@ -515,7 +516,7 @@ def run_panda_example(params, n_steps=5000, planners=[], planners_grasp=[], goal
 
 def define_run_panda_example(n_steps=100, render=True):
     random_scene = False
-    param = examples.parameters_manipulators.manipulator_parameters(nr_robots=2)
+    param = parameters_manipulators.manipulator_parameters(nr_robots=2)
     simulation_class = create_simulation_manipulators.create_manipulators_simulation(param)
     utils_class = UtilsKinematics()
     random_obstacles = simulation_class.create_scene(random_scene=random_scene, n_cubes=param.n_cubes)
