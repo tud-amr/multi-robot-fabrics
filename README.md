@@ -14,7 +14,7 @@ A **video** showcasing the presented approach can be found [here](https://www.yo
 ## Options
 This repository allows the application of multi-robot-fabrics
 
-## Usage
+## Installations
 You can install the package using poetry. For more details see the [installation instructions](docs/installation.md)
 
     install poetry
@@ -23,6 +23,9 @@ Enter the virtual environment using:
 
     poetry shell
 
+Requirements can be found in [pyproject.toml](pyproject.toml). 
+
+## Usage
     
 ## Explanation
 This project should be set up with poetry. Installation instructions are provided in the docs folder.
