@@ -1,7 +1,7 @@
 # multi-robot-fabrics
 
-Implementation of multi-robot-fabrics presented in our MRS 2023 paper "Multi-Robot Local Motion Planning Using  
-Dynamic Optimization Fabrics".
+Implementation of multi-robot-fabrics presented in our MRS 2023 paper **"Multi-Robot Local Motion Planning Using  
+Dynamic Optimization Fabrics"**.
 
 The current version of the paper can be cited using the following reference:
 
