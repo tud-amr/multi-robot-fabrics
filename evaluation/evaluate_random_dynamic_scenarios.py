@@ -1,7 +1,7 @@
 from examples.panda_panda_multifabrics import run_panda_example, define_planners, define_rollout_planners
 import examples.parameters_manipulators
 from examples.simulation_environments.create_simulation_manipulators import create_manipulators_simulation
-from multifabrics.utils.utils import UtilsKinematics
+from multi_robot_fabrics.utils.utils import UtilsKinematics
 from texttable import Texttable
 import latextable
 import numpy as np

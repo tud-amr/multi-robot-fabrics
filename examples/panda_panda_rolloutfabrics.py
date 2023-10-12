@@ -6,13 +6,13 @@ from forwardkinematics.urdfFks.generic_urdf_fk import GenericURDFFk
 from mpscenes.goals.goal_composition import GoalComposition
 import numpy as np
 from fabrics.planner.parameterized_planner import ParameterizedFabricPlanner
-from multifabrics.others_planner.deadlock_prevention import deadlockprevention
-from multifabrics.others_planner.state_machine import StateMachine
+from multi_robot_fabrics.others_planner.deadlock_prevention import deadlockprevention
+from multi_robot_fabrics.others_planner.state_machine import StateMachine
 import examples.parameters_manipulators
-from multifabrics.fabrics_planner.fabrics_planner import FabricsPlanner
-from multifabrics.utils.utils import UtilsKinematics
-from multifabrics.utils.generate_figures import generate_plots
-from multifabrics.utils.utils_apply_fk import compute_x_obsts_dyn_0, compute_endeffector
+from multi_robot_fabrics.fabrics_planner.fabrics_planner import FabricsPlanner
+from multi_robot_fabrics.utils.utils import UtilsKinematics
+from multi_robot_fabrics.utils.generate_figures import generate_plots
+from multi_robot_fabrics.utils.utils_apply_fk import compute_x_obsts_dyn_0, compute_endeffector
 
 """
 !!! IMPORTANT !!!
