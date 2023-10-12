@@ -515,19 +515,20 @@ def run_panda_example(params, n_steps=5000, planners=[], planners_grasp=[], goal
     }
 
 def define_run_panda_example(n_steps=100, render=True):
+    with open("configs/panda_config.yaml", "r") as setup_stream:
+        setup = yaml.safe_load(setup_stream)
     random_scene = False
-    param = parameters_manipulators.manipulator_parameters(nr_robots=2)
+    nr_robots = setup['n_robots']
+    param = parameters_manipulators.manipulator_parameters(nr_robots=nr_robots, n_obst_per_link=setup['n_obst_per_link'])
     simulation_class = create_simulation_manipulators.create_manipulators_simulation(param)
     utils_class = UtilsKinematics()
     random_obstacles = simulation_class.create_scene(random_scene=random_scene, n_cubes=param.n_cubes)
     env = simulation_class.initialize_environment(render=render, random_scene=random_scene, obstacles=random_obstacles)
     planners, planners_grasp, goal_structs = define_planners(params=param)
     fk_dict = utils_class.define_forward_kinematics(planners=planners, collision_links=param.collision_links, collision_links_nrs=param.collision_links_nrs)
-    with open("configs/panda_config.yaml", "r") as setup_stream:
-        setup = yaml.safe_load(setup_stream)
     settings = param.define_settings(ROLLOUT_FABRICS = setup['ROLLOUT_FABRICS'], ROLLOUTS_PLOTTING = setup['ROLLOUTS_PLOTTING'],
                                      STATIC_OR_DYN_FABRICS=setup['STATIC_OR_DYN_FABRICS'], RESOLVE_DEADLOCKS=setup['RESOLVE_DEADLOCKS'],
-                                     ESTIMATE_GOAL=setup['ESTIMATE_GOAL'], N_HORIZON=setup['N_HORIZON'])
+                                     ESTIMATE_GOAL=setup['ESTIMATE_GOAL'], N_HORIZON=setup['N_HORIZON'], n_obst_per_link=setup['n_obst_per_link'])
     if param.ROLLOUT_FABRICS == True:
         forwardplanner = define_rollout_planners(params=param, fk_dict=fk_dict, goal_structs=goal_structs)
     else:

@@ -3,7 +3,7 @@ import numpy as np
 import copy
 class manipulator_parameters():
 
-    def __init__(self, nr_robots):
+    def __init__(self, nr_robots,n_obst_per_link):
         # --- parameters ---- #
         self.dt = 0.01  # sample time
         self.n_cubes = 6  # number of cubes
@@ -19,7 +19,7 @@ class manipulator_parameters():
             self.nx = self.dof * 2
         self.nr_obsts = [0]*nr_robots  # number of static obstacles considered per robot
         self.radius_obsts = [[]*nr_robots]
-        self.n_obst_per_link = 1  # number of obstacles per link on the robots
+        self.n_obst_per_link = n_obst_per_link  # number of obstacles per link on the robots
         self.radius_sphere = 0.08  # radius of the collision spheres
         self.nr_constraints = [1]*self.nr_robots
         self.collision_links_nrs = [[1, 2, 3, 4, 5, 6, 7, 8]]*nr_robots
@@ -155,7 +155,7 @@ class manipulator_parameters():
         return self.urdf_links
 
     def define_settings(self, ROLLOUT_FABRICS=False, ROLLOUTS_PLOTTING=False, STATIC_OR_DYN_FABRICS=0, RESOLVE_DEADLOCKS=True,
-                        ESTIMATE_GOAL=False, N_HORIZON=10, MPC_LAYER=False) -> list:
+                        ESTIMATE_GOAL=False, N_HORIZON=10, MPC_LAYER=False, n_obst_per_link=1) -> list:
         """
         Define some variables:
         - ROLLOUT_FABRICS: if forward simulations are performed
@@ -172,7 +172,8 @@ class manipulator_parameters():
         self.ESTIMATE_GOAL = ESTIMATE_GOAL
         self.N_HORIZON = N_HORIZON
         self.MPC_LAYER = MPC_LAYER
-        return [self.ROLLOUT_FABRICS, self.ROLLOUTS_PLOTTING, self.STATIC_OR_DYN_FABRICS, self.RESOLVE_DEADLOCKS, self.ESTIMATE_GOAL, self.N_HORIZON, self.MPC_LAYER]
+        self.n_obst_per_link = n_obst_per_link
+        return [self.ROLLOUT_FABRICS, self.ROLLOUTS_PLOTTING, self.STATIC_OR_DYN_FABRICS, self.RESOLVE_DEADLOCKS, self.ESTIMATE_GOAL, self.N_HORIZON, self.MPC_LAYER, self.n_obst_per_link]
 
     def get_settings(self):
         return [self.ROLLOUT_FABRICS, self.ROLLOUTS_PLOTTING, self.STATIC_OR_DYN_FABRICS, self.RESOLVE_DEADLOCKS, self.ESTIMATE_GOAL, self.N_HORIZON, self.MPC_LAYER]
