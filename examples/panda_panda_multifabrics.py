@@ -1,6 +1,6 @@
 import time
-import os
 import sys
+import yaml
 sys.path.insert(0, './')
 import copy
 from forwardkinematics.urdfFks.generic_urdf_fk import GenericURDFFk
@@ -523,7 +523,11 @@ def define_run_panda_example(n_steps=100, render=True):
     env = simulation_class.initialize_environment(render=render, random_scene=random_scene, obstacles=random_obstacles)
     planners, planners_grasp, goal_structs = define_planners(params=param)
     fk_dict = utils_class.define_forward_kinematics(planners=planners, collision_links=param.collision_links, collision_links_nrs=param.collision_links_nrs)
-    settings = param.define_settings(ROLLOUT_FABRICS = True, ROLLOUTS_PLOTTING = False, STATIC_OR_DYN_FABRICS=1, N_HORIZON=10)
+    with open("configs/panda_config.yaml", "r") as setup_stream:
+        setup = yaml.safe_load(setup_stream)
+    settings = param.define_settings(ROLLOUT_FABRICS = setup['ROLLOUT_FABRICS'], ROLLOUTS_PLOTTING = setup['ROLLOUTS_PLOTTING'],
+                                     STATIC_OR_DYN_FABRICS=setup['STATIC_OR_DYN_FABRICS'], RESOLVE_DEADLOCKS=setup['RESOLVE_DEADLOCKS'],
+                                     ESTIMATE_GOAL=setup['ESTIMATE_GOAL'], N_HORIZON=setup['N_HORIZON'])
     if param.ROLLOUT_FABRICS == True:
         forwardplanner = define_rollout_planners(params=param, fk_dict=fk_dict, goal_structs=goal_structs)
     else:

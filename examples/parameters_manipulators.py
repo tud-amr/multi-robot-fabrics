@@ -160,7 +160,7 @@ class manipulator_parameters():
         Define some variables:
         - ROLLOUT_FABRICS: if forward simulations are performed
         - ROLLOUT_PLOTTING: if the rollouts are plotted and stored along the horizon (state, input) or only the average velocity
-        - STATIC_OR_DYN_FABRICS: if static (zero velocity obstacles) or dynamic fabrics (constant velocity obstacles) is used
+        - STATIC_OR_DYN_FABRICS: 0 if static (zero velocity obstacles) or 1 if dynamic fabrics (constant velocity obstacles) is used
         - RESOLVE_DEADLOCKS: if deadlocks are resolved
         - ESTIMATE_GOAL: if the goal is communicated or estimated
         - N_HORIZON: the length of the prediction horizon

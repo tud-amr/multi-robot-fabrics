@@ -1,6 +1,6 @@
 import time
 import copy
-
+import yaml
 from examples.simulation_environments import create_simulation_manipulators
 from forwardkinematics.urdfFks.generic_urdf_fk import GenericURDFFk
 from mpscenes.goals.goal_composition import GoalComposition
@@ -518,10 +518,16 @@ def run_panda_example(params, n_steps=5000, planners=[], planners_grasp=[], goal
     }
 
 def define_run_panda_example(n_steps=100, render=True):
-    nr_robots = 2
+    with open("configs/panda_config.yaml", "r") as setup_stream:
+        setup = yaml.safe_load(setup_stream)
+    nr_robots = setup['n_robots']
     random_scene = False
     param = examples.parameters_manipulators.manipulator_parameters(nr_robots=nr_robots)
-    settings = param.define_settings(ROLLOUT_FABRICS = True, ROLLOUTS_PLOTTING = False, STATIC_OR_DYN_FABRICS=1, N_HORIZON=2, MPC_LAYER=False)
+    settings = param.define_settings(ROLLOUT_FABRICS=setup['ROLLOUT_FABRICS'],
+                                     ROLLOUTS_PLOTTING=setup['ROLLOUTS_PLOTTING'],
+                                     STATIC_OR_DYN_FABRICS=setup['STATIC_OR_DYN_FABRICS'],
+                                     RESOLVE_DEADLOCKS=setup['RESOLVE_DEADLOCKS'],
+                                     ESTIMATE_GOAL=setup['ESTIMATE_GOAL'], N_HORIZON=setup['N_HORIZON'])
 
     #simulation environment:
     simulation_class = create_simulation_manipulators.create_manipulators_simulation(param)

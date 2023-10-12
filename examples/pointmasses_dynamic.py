@@ -210,6 +210,7 @@ def run_point_example(n_steps=1000, render=True):
                 xddot_obst_dynamic_2=np.array([0, 0]),
                 radius_obst_dynamic_2=radius_other_robots[2],
             )
+        ob, *_ = env.step(action)
     return {}
 
 
