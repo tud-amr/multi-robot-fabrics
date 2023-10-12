@@ -5,9 +5,9 @@ Dynamic Optimization Fabrics"**.
 
 The current version of the paper can be cited using the following reference:
 
-A video showcasing the presented approach can be found [here](https://www.youtube.com/@amrlab).
+A **video** showcasing the presented approach can be found [here](https://www.youtube.com/@amrlab).
 
-We provide detailed installation instructions [here](docs/installation.md).
+We provide detailed **installation** instructions [here](docs/installation.md).
 
 ## Teaser
 <img src="assets/video_rf_cv_2robots.gif" alt="2 Robots applying RF">
