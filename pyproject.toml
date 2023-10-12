@@ -1,5 +1,5 @@
 [tool.poetry]
-name = "multifabrics"
+name = "fabrics-multi-robot"
 version = "0.1.0"
 description = ""
 authors = ["Saray Bakker <saraybakker@gmail.com>"]
