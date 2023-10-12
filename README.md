@@ -50,4 +50,6 @@ Parameters of the two and three panda case are constructed in 'parameters_manipu
 
 Academic licences of forcespro can be requested via embotech.com.
 
+## Troubleshooting
 
+If you run into problems of any kind, don't hesitate to open an issue on this repository.
