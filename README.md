@@ -3,6 +3,9 @@
 Implementation of multi-robot-fabrics presented in our MRS 2023 paper **"Multi-Robot Local Motion Planning Using Dynamic Optimization Fabrics"**.
 
 The current version of the paper can be cited using the following reference:
+```bibtex
+add ref
+```
 
 A **video** showcasing the presented approach can be found [here](https://www.youtube.com/@amrlab).
 
@@ -11,8 +14,15 @@ A **video** showcasing the presented approach can be found [here](https://www.yo
 <img src="assets/video_rf_cv_2robots.gif" alt="2 Robots applying RF">
 
 ## Options
-This repository includes examples of the application of multi-robot fabrics to Point Robots and Panda robotic arms.
+This repository includes examples of the application of multi-robot fabrics to point robots and Panda robotic arms.
+The examples can be run 
+1) without rollouts (in the paper referred to as MRDF),
+2) with rollout fabrics and deadlock resolution heuristic (in the paper referred to as RF), and
+3) with rollout fabrics, constant velocity goal estimation and deadlock resolution (in the paper referred to as RF-CV)
 
+While in the paper dynamic fabrics ([Spahn2023](https://ieeexplore.ieee.org/stamp/stamp.jsp?arnumber=10086617)), are applied we also support static fabrics as introduced in [Ratliff2020](https://arxiv.org/pdf/2008.02399.pdf).
+
+Which configuration is used can be accessed in `examples/configs`. Here, also the number of robots can be adapted.
 
 <table>
  <tr>
