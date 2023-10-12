@@ -16,13 +16,13 @@ This repository allows the application of multi-robot-fabrics
 <table>
  <tr>
   <td> Point Robot </td>
-  <td> Point Robot with Keyboard Input </td>
+  <td> Panda  </td>
   <td> Non-Holonomic Robot </td>
  </tr>
  <tr>
-  <td> <img src="/assets/2panda_scenario.png" width="250" height="250"/> </td>
-  <td> <img src="/assets/2panda_scenario.png" width="250" height="250"/> </td>  
-  <td> <img src="/assets/2panda_scenario.png" width="250" height="250"/> </td>
+  <td> <img src="/assets/4pointmasses.png" width="250"/> </td>
+  <td> <img src="/assets/2panda_scenario.png" width="250"/> </td>  
+  <td> <img src="/assets/2panda_scenario.png" width="250"/> </td>
  </tr>
 </table>
 
