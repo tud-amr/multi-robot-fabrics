@@ -16,28 +16,33 @@ This repository allows the application of multi-robot-fabrics
 <table>
  <tr>
   <td> Point Robot </td>
-  <td> Point Robot with Keyboard Input </td>
+  <td> Panda  </td>
   <td> Non-Holonomic Robot </td>
  </tr>
  <tr>
-  <td> <img src="/assets/2panda_scenario.png" width="250" height="250"/> </td>
-  <td> <img src="/assets/2panda_scenario.png" width="250" height="250"/> </td>  
-  <td> <img src="/assets/2panda_scenario.png" width="250" height="250"/> </td>
+  <td> <img src="/assets/4pointmasses.png" width="250"/> </td>
+  <td> <img src="/assets/2panda_scenario.png" width="250"/> </td>  
+  <td> <img src="/assets/2panda_scenario.png" width="250"/> </td>
  </tr>
 </table>
 
 ## Installations
-You can install the package using poetry. For more details see the [installation instructions](docs/installation.md).
+Clone this repository and go to its root:
+
+    git clone git@github.com:tud-amr/multi-robot-fabrics.git
+    cd multi-robot-fabrics
+    
+You can install the package using poetry. For more details on poetry see [installation instructions](docs/installation.md).
 
     install poetry
-
-Enter the virtual environment using:
-
-    poetry shell
 
 Requirements can be found in [pyproject.toml](pyproject.toml). 
 
 ## Usage
+Enter the virtual environment using:
+
+    poetry shell
+    
 In the folder `multi_robot_fabrics` run
 
     python examples/<example-file-name>
@@ -66,4 +71,4 @@ Academic licences of forcespro can be requested via embotech.com.
 
 ## Troubleshooting
 
-If you run into problems of any kind, do not hesitate to open an issue on this repository.
+If you run into problems of any kind or have a question, do not hesitate to open an [issue](https://github.com/tud-amr/multi-robot-fabrics/issues) on this repository. 

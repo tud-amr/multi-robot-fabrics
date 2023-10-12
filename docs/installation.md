@@ -1,19 +1,4 @@
-# Installation
-
-Prerequisites: Install [Poetry](#poetry)
-
-Clone this repository and go to its root:
-
-    git clone git@github.com:tud-amr/multi-robot-fabrics.git
-    cd multi-robot-fabrics
-    
-Install dependencies
-
-    poetry install
-    
-
-
-## Other Dependencies
+# Other Dependencies
 Below you find instructions for installing dependencies (optionally) required.
 
 ### Poetry 
