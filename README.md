@@ -1,14 +1,32 @@
 # multi-robot-fabrics
 
-Implementation of multi-robot-fabrics presented in our MRS 2023 paper "Multi-Robot Local Motion Planning Using  
-Dynamic Optimization Fabrics".
+Implementation of multi-robot-fabrics presented in our MRS 2023 paper **"Multi-Robot Local Motion Planning Using  
+Dynamic Optimization Fabrics"**.
 
+The current version of the paper can be cited using the following reference:
 
-Video:
+A **video** showcasing the presented approach can be found [here](https://www.youtube.com/@amrlab).
+
 
 ## Teaser
 <img src="assets/video_rf_cv_2robots.gif" alt="2 Robots applying RF">
 
+## Options
+This repository allows the application of multi-robot-fabrics
+
+## Installations
+You can install the package using poetry. For more details see the [installation instructions](docs/installation.md)
+
+    install poetry
+
+Enter the virtual environment using:
+
+    poetry shell
+
+Requirements can be found in [pyproject.toml](pyproject.toml). 
+
+## Usage
+    
 ## Explanation
 This project should be set up with poetry. Installation instructions are provided in the docs folder.
 
@@ -29,5 +47,4 @@ Parameters of the two and three panda case are constructed in 'parameters_manipu
 
 Academic licences of forcespro can be requested via embotech.com.
 
-## Installation
-We provide detailed installation instructions [here](docs/installation.md).
+
