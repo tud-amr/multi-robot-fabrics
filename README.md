@@ -13,7 +13,7 @@ The current version of the paper can be cited using the following reference:
 add ref
 ```
 
-A **video** showcasing the presented approach can be found [here](https://www.youtube.com/@amrlab).
+A **video** showcasing the presented approach can be found [here](https://www.youtube.com/watch?v=jaJBrSecDcM).
 
 
 ## Teaser
