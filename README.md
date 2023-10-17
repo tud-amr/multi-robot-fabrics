@@ -53,7 +53,7 @@ Clone this repository and go to its root:
     
 You can install the package using poetry. For more details on poetry see [installation instructions](docs/installation.md).
 
-    install poetry
+    poetry install
 
 The requirements can be found in [pyproject.toml](pyproject.toml). 
 
