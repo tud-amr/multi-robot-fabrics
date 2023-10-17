@@ -3,7 +3,7 @@ import numpy as np
 import copy
 class manipulator_parameters():
 
-    def __init__(self, nr_robots,n_obst_per_link):
+    def __init__(self, nr_robots,n_obst_per_link=1):
         # --- parameters ---- #
         self.dt = 0.01  # sample time
         self.n_cubes = 6  # number of cubes
