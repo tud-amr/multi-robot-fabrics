@@ -11,7 +11,6 @@ from examples.simulation_environments.create_simulation_manipulators import crea
 from multi_robot_fabrics.utils.utils import UtilsKinematics
 import examples.parameters_manipulators as parameters_manipulators
 
-
 def get_std(list_of_std: list) -> float:
     """
     input: list of standard deviations
