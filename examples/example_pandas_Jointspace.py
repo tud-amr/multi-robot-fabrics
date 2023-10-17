@@ -7,7 +7,7 @@ from forwardkinematics.urdfFks.generic_urdf_fk import GenericURDFFk
 from examples.simulation_environments import create_simulation_manipulators
 from mpscenes.goals.goal_composition import GoalComposition
 import casadi as ca
-from multi_robot_fabrics.fabrics_planner.forward_planner_symbolic import ForwardFabricsPlanner
+from multi_robot_fabrics.fabrics_planner.forward_planner_Jointspace import ForwardFabricsPlanner
 import numpy as np
 from fabrics.planner.parameterized_planner import ParameterizedFabricPlanner
 from multi_robot_fabrics.others_planner.deadlock_prevention import deadlockprevention

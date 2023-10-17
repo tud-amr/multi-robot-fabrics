@@ -9,14 +9,14 @@ from fabrics.planner.parameterized_planner import ParameterizedFabricPlanner
 from multi_robot_fabrics.others_planner.deadlock_prevention import deadlockprevention
 from multi_robot_fabrics.others_planner.state_machine import StateMachine
 import examples.parameters_manipulators
-from multi_robot_fabrics.fabrics_planner.fabrics_planner import FabricsPlanner
+from multi_robot_fabrics.fabrics_planner.forward_planner_Cartesian import FabricsRollouts
 from multi_robot_fabrics.utils.utils import UtilsKinematics
 from multi_robot_fabrics.utils.generate_figures import generate_plots
 from multi_robot_fabrics.utils.utils_apply_fk import compute_x_obsts_dyn_0, compute_endeffector
 
 """
 !!! IMPORTANT !!!
-Compared to panda_panda_multifabrics.py, the forward rollouts of positions and velocities of the obstacles/other agents 
+Compared to example_pandas_Jointspace.py, the forward rollouts of positions and velocities of the obstacles/other agents 
 are NOT done in joint-space/configuration space, but in CARTESIAN space.
 This simplifies the computation of the obstacle positions and velocities at the next time-instance.
 """
@@ -161,8 +161,11 @@ def define_rollout_planners(params, fk_dict=None, goal_structs=None, n_steps=100
     """
     Define the planners that are used for the rollouts (less obstacles per link)
     """
-    planners_fabrics = []
-    # planners_rollout = []
+    forwardplanners = []
+
+    # for computational overhead, it is possible to define different planners for the rollouts,
+    # with only 1 collision link per sphere. Can be easily changed:
+    # planners_fabrics_rollout = []
     # for i_robot in range(params.nr_robots):
     #     planner_panda_fk_i, goal = set_planner_panda(degrees_of_freedom=params.dof[i_robot],
     #                                               nr_obst=params.nr_obsts[i_robot],
@@ -171,22 +174,22 @@ def define_rollout_planners(params, fk_dict=None, goal_structs=None, n_steps=100
     #                                               urdf_links=params.urdf_links,
     #                                               mount_transform=params.mount_transform,
     #                                               i_robot=i_robot)
-    #     planners_rollout.append(planner_panda_fk_i)
+    #     planners_fabrics_rollout.append(planner_panda_fk_i)
 
-    v_obsts_dyn = [np.zeros((3,))]* params.nr_obsts_dyn[0]
+    v_obsts_dyn = [np.zeros((3,))]* params.nr_obsts_dyn_all[0]
 
     for i_robot in range(nr_robots):
-        planner_fabrics_i = FabricsPlanner(N=params.N_HORIZON, dt=params.dt, nx=params.dof[i_robot]*2, nu=params.dof[i_robot],
+        forwardplanner_i = FabricsRollouts(N=params.N_HORIZON, dt=params.dt, nx=params.dof[i_robot]*2, nu=params.dof[i_robot],
                                         dof=params.dof[i_robot], nr_obsts=params.nr_obsts[i_robot],
-                                        bool_ring=False, nr_obsts_dyn=params.nr_obsts_dyn[i_robot],
+                                        bool_ring=False, nr_obsts_dyn=params.nr_obsts_dyn_all[i_robot],
                                         v_obsts_dyn=v_obsts_dyn, fabrics_mode=params.fabrics_mode,
                                         collision_links_nrs=params.collision_links_nrs[i_robot],
                                         nr_constraints=params.nr_constraints[i_robot], radius_sphere=params.radius_sphere,
                                         constraints=params.constraints[i_robot],
                                         nr_goals=len(goal_structs[i_robot]._config))
-        planner_fabrics_i.symbolic_forward_fabrics(planner=planners[i_robot], goal_struct=goal_structs[i_robot])
-        planners_fabrics.append(planner_fabrics_i)
-    return planners_fabrics
+        forwardplanner_i.symbolic_forward_fabrics(planner=planners[i_robot], goal_struct=goal_structs[i_robot])
+        forwardplanners.append(forwardplanner_i)
+    return forwardplanners
 
 def run_panda_example(params, n_steps=5000, planners=[], planners_grasp=[], goal_structs=[], env=None, fk_dict=None, forwardplanners=None, fk_dict_spheres=None, utils_class=None) -> dict:
     """
@@ -342,7 +345,7 @@ def run_panda_example(params, n_steps=5000, planners=[], planners_grasp=[], goal
                                                           x_collision_sphere_poses=x_collision_sphere_poses,
                                                           nr_robots=nr_robots,
                                                           fk_dict_spheres=fk_dict_spheres,
-                                                          dof=dof[0])
+                                                          nr_dyn_obsts = params.nr_obsts_dyn_all)
 
         #define end-effector positions and velocities:
         x_robots_ee, v_robots_ee = compute_endeffector(q_pandas, qdot_pandas, fk_endeff, nr_robots=params.nr_robots)
@@ -358,13 +361,15 @@ def run_panda_example(params, n_steps=5000, planners=[], planners_grasp=[], goal
             t_start_rollouts = time.perf_counter()
             arguments = [[] for _ in range(nr_robots)]
             for i_robot in range(nr_robots):
+                # forwardplanners[i_robot].reset_v_obsts_dyn(v_dyns_obsts)
                 arguments[i_robot] = forwardplanners[i_robot].define_arguments_numerical(q_robot=q_pandas[i_robot],
                                                                     q_dot_robot=qdot_pandas[i_robot],
                                                                     constraints=params.constraints[i_robot],
                                                                     weight_goals=weight_goals["robot_" + str(i_robot)],
                                                                     x_goals=x_goals["robot_" + str(i_robot)],
                                                                     x_obsts=[],
-                                                                    x_obsts_dyn=x_dyns_obsts[i_robot])
+                                                                    x_obsts_dyn=x_dyns_obsts[i_robot],
+                                                                    v_obsts_dyn=v_dyns_obsts[i_robot])
                 # --- The numerical rollouts of state and action along the horizon --- #
                 if params.ROLLOUTS_PLOTTING == True:
                     # ---- forward fabrics ----- #
@@ -518,7 +523,7 @@ def run_panda_example(params, n_steps=5000, planners=[], planners_grasp=[], goal
     }
 
 def define_run_panda_example(n_steps=100, render=True):
-    with open("configs/panda_config.yaml", "r") as setup_stream:
+    with open("examples/configs/panda_config.yaml", "r") as setup_stream:
         setup = yaml.safe_load(setup_stream)
     nr_robots = setup['n_robots']
     random_scene = False
@@ -545,15 +550,15 @@ def define_run_panda_example(n_steps=100, render=True):
     fk_dict_spheres = utils_class.define_symbolic_collision_link_poses(urdf_files=param.urdf_links,
                                                                        collision_links=param.collision_links,
                                                                        sphere_transformations=link_transforms_list,
-                                                                       n_obst_per_link=1,
+                                                                       n_obst_per_link=param.n_obst_per_link,
                                                                        mount_transform=param.mount_transform)
     if param.ROLLOUT_FABRICS == True:
-        planners_fabrics = define_rollout_planners(params=param, fk_dict=fk_dict, goal_structs=goal_structs, n_steps=n_steps, planners=planners, nr_robots=nr_robots)
+        planners_forward = define_rollout_planners(params=param, fk_dict=fk_dict, goal_structs=goal_structs, n_steps=n_steps, planners=planners, nr_robots=nr_robots)
     else:
-        planners_fabrics = None
+        planners_forward = None
 
     res = run_panda_example(params=param, n_steps=n_steps, planners=planners, planners_grasp=planners_grasp,
-                            goal_structs=goal_structs, env=env, fk_dict=fk_dict, forwardplanners=planners_fabrics,
+                            goal_structs=goal_structs, env=env, fk_dict=fk_dict, forwardplanners=planners_forward,
                             fk_dict_spheres=fk_dict_spheres, utils_class=utils_class)
     env.close()
     return res

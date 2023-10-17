@@ -1,4 +1,4 @@
-from examples.panda_panda_multifabrics import run_panda_example, define_planners, define_rollout_planners
+from examples.example_pandas_Jointspace import run_panda_example, define_planners, define_rollout_planners
 import examples.parameters_manipulators
 from examples.simulation_environments.create_simulation_manipulators import create_manipulators_simulation
 from multi_robot_fabrics.utils.utils import UtilsKinematics
@@ -10,6 +10,10 @@ import copy
 
 """
 RUN EVALUATIONS WITH DYNAMIC FABRICS, ROLLOUT FABRICS AND ESTIMATED ROLLOUT FABRICS
+NOTE: since this script takes very long for 50 runs with 7000 steps, change it back to:
+    n_steps = 7000
+    n_runs = 1
+for a reasonable computation time ;)
 
 When running this file, n_runs of random scenarios are evaluated for a scenario of two manipulators performing
 a pick-and-place task. 
@@ -148,8 +152,8 @@ def define_run_evaluations(n_steps=100, render=False, n_runs=1):
     print(latextable.draw_latex(table, caption="Statistics for 200 runs of our proposed method compared to"))
 
 if __name__ == "__main__":
-    n_steps = 100
+    n_steps = 7000
+    n_runs = 50
     render = False
-    n_runs = 1
     variables_plots = define_run_evaluations(n_steps=n_steps, render=render, n_runs=n_runs)
 

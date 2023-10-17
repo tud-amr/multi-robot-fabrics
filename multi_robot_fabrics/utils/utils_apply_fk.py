@@ -1,6 +1,6 @@
 import numpy as np
 
-def compute_x_obsts_dyn_0(q_robots, qdot_robots, x_collision_sphere_poses = None, nr_robots=2, fk_dict_spheres=[], dof = 7):
+def compute_x_obsts_dyn_0(q_robots, qdot_robots, x_collision_sphere_poses = None, nr_robots=2, fk_dict_spheres=[], nr_dyn_obsts = [0, 0]):
     """
     Construct the position of the dynamic obstacles from the environment
     and the velocity using the symbolic functions.
@@ -25,7 +25,7 @@ def compute_x_obsts_dyn_0(q_robots, qdot_robots, x_collision_sphere_poses = None
         for i_other_robot in i_other_robots:
             x_dyns_obsts[i_other_robot] = x_dyns_obsts[i_other_robot] + x_dyns_obsts_per_robot[i_robot]
             # x_dyns_obsts_new[i_robot] = np.vsplit(fk_dict_spheres[i_other_robot]["fk_fun"](q_robots[i_other_robot]).full().transpose(), dof+1)
-            v_dyns_obsts[i_robot].extend(np.vsplit(fk_dict_spheres[i_other_robot]["vel_fun"](q[i_other_robot], qdot[i_other_robot]).full().transpose(), dof+1))
+            v_dyns_obsts[i_robot].extend(np.vsplit(fk_dict_spheres[i_other_robot]["vel_fun"](q[i_other_robot], qdot[i_other_robot]).full().transpose(), nr_dyn_obsts[i_robot]))
 
         # for i_other_robot in i_other_robots:
         #     for i_sphere in range(len(v_robots[i_other_robot])):

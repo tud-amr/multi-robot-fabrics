@@ -1,8 +1,8 @@
-n_robots: 2 # the current implementation does only support 3 robots
+n_robots: 2 # the current implementation does only support 2 or 3 robots
 ROLLOUT_FABRICS: True
-ROLLOUTS_PLOTTING: False
+ROLLOUTS_PLOTTING: False #if True: generates state, velocity and acceleration along the horizon for every time-step.
 STATIC_OR_DYN_FABRICS: 1 # static fabrics: 0, dynamic fabrics: 1,
 RESOLVE_DEADLOCKS: 1
 ESTIMATE_GOAL: False
 N_HORIZON: 10
-n_obst_per_link: 2
+n_obst_per_link: 4

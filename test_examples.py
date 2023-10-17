@@ -2,9 +2,7 @@ import pytest
 import warnings
 
 """
-This script contains tests of the multirobot examples and evaluation scripts (without mpc layer). 
-WARNING: all scripts using forcespro are not tested via git. 
-If you would like to test these scripts locally, run the file 'test_examples_MPC.py'
+This script contains tests of the multirobot examples and evaluation scripts. 
 """
 
 def blueprint_test(test_main):
@@ -22,19 +20,19 @@ def blueprint_test(test_main):
     assert isinstance(history, dict)
 
 def test_pointmass_static():
-    from pointmasses_static import run_point_example
+    from examples.example_pointmasses_static import run_point_example
     blueprint_test(run_point_example)
 
 def test_pointmass_dynamic():
-    from pointmasses_dynamic import run_point_example
+    from examples.example_pointmasses_dynamic import run_point_example
     blueprint_test(run_point_example)
 
-def test_panda_panda():
-    from panda_panda_multifabrics import define_run_panda_example
+def test_example_pandas_jointspace():
+    from examples.example_pandas_Jointspace import define_run_panda_example
     blueprint_test(define_run_panda_example)
 
-def test_panda_panda_rollout():
-    from panda_panda_rolloutfabrics import define_run_panda_example
+def test_example_pandas_cartesian():
+    from examples.example_pandas_cartesian import define_run_panda_example
     blueprint_test(define_run_panda_example)
 
 # def test_evaluations():

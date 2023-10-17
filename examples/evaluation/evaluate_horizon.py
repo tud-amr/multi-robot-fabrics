@@ -6,7 +6,7 @@ import pickle
 import copy
 import sys
 sys.path.insert(0, './')
-from examples.panda_panda_multifabrics import run_panda_example, define_planners, define_rollout_planners
+from examples.example_pandas_Jointspace import run_panda_example, define_planners, define_rollout_planners
 from examples.simulation_environments.create_simulation_manipulators import create_manipulators_simulation
 from multi_robot_fabrics.utils.utils import UtilsKinematics
 import examples.parameters_manipulators as parameters_manipulators

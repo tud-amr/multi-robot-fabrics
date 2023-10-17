@@ -5,7 +5,7 @@ import copy
 import quaternionic
 from fabrics.planner.parameterized_planner import ParameterizedFabricPlanner
 
-class FabricsPlanner(object):
+class FabricsRollouts(object):
     """
     This class is used to rollout fabrics. this can either be done:
     1) by constructing a symbolic struct beforehand, which is captured into a casadi function for which numerical values
@@ -504,7 +504,7 @@ class FabricsPlanner(object):
             x_obsts_dyn_N.append(x_obsts_dyn_k)
         return x_obsts_dyn_N
 
-    def define_arguments_numerical(self, q_robot, q_dot_robot, weight_goals, x_goals, x_obsts, x_obsts_dyn, constraints=[]):
+    def define_arguments_numerical(self, q_robot, q_dot_robot, weight_goals, x_goals, x_obsts, x_obsts_dyn, v_obsts_dyn, constraints=[]):
         arguments = []
         if self.nr_subgoals>1:
             arguments.append(self.rotation_matrix_panda)
@@ -528,7 +528,7 @@ class FabricsPlanner(object):
         for i_obst_dyn in range(self.nr_obsts_dyn):
             arguments.append(x_obsts_dyn[i_obst_dyn])
         for i_obst_dyn in range(self.nr_obsts_dyn):
-            arguments.append(self.v_obsts_dyn[i_obst_dyn])
+            arguments.append(v_obsts_dyn[i_obst_dyn])
         for i_obst_dyn in range(self.nr_obsts_dyn):
             arguments.append(self.a_obsts_dyn[i_obst_dyn])
 
