@@ -55,7 +55,7 @@ You can install the package using poetry. For more details on poetry see [instal
 
     install poetry
 
-Requirements can be found in [pyproject.toml](pyproject.toml). 
+The requirements can be found in [pyproject.toml](pyproject.toml). 
 
 ## Usage
 Enter the virtual environment using:
