@@ -11,7 +11,6 @@ from examples.simulation_environments.create_simulation_manipulators import crea
 from multi_robot_fabrics.utils.utils import UtilsKinematics
 import examples.parameters_manipulators as parameters_manipulators
 
-
 def get_std(list_of_std: list) -> float:
     """
     input: list of standard deviations
@@ -117,9 +116,9 @@ def define_run_evaluations(n_steps=100, render=False, n_runs=1):
         plt.savefig('figure_solver_time.png')
 
 if __name__ == "__main__":
-    n_steps = 100
+    n_steps = 7000
     render = False
-    n_runs = 1
+    n_runs = 5
     variables_plots = define_run_evaluations(n_steps=n_steps, render=render, n_runs=n_runs)
 
 

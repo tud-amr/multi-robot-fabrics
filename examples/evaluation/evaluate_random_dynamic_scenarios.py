@@ -153,7 +153,7 @@ def define_run_evaluations(n_steps=100, render=False, n_runs=1):
 
 if __name__ == "__main__":
     n_steps = 7000
-    n_runs = 50
+    n_runs = 2
     render = False
     variables_plots = define_run_evaluations(n_steps=n_steps, render=render, n_runs=n_runs)
 

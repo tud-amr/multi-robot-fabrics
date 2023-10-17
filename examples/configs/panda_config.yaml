@@ -5,4 +5,4 @@ STATIC_OR_DYN_FABRICS: 1 # static fabrics: 0, dynamic fabrics: 1,
 RESOLVE_DEADLOCKS: 1
 ESTIMATE_GOAL: False
 N_HORIZON: 10
-n_obst_per_link: 4
+n_obst_per_link: 4 #for faster computation, set to 1!

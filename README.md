@@ -66,7 +66,7 @@ In the folder `multi_robot_fabrics` run
 
     python examples/<example-file-name>
 
-E.g. to run the panda example `python examples/panda_panda_multifabrics.py`.
+E.g. to run the panda example `python examples/example_pandas_Jointspace.py`.
     
 
 ## Troubleshooting
