@@ -26,8 +26,8 @@ The examples can be run
 2) with rollout fabrics and deadlock resolution heuristic (in the paper referred to as RF), and
 3) with rollout fabrics, constant velocity goal estimation and deadlock resolution (in the paper referred to as RF-CV)
 
-While in the paper dynamic fabrics ([Spahn2023](https://ieeexplore.ieee.org/stamp/stamp.jsp?arnumber=10086617)), are applied we also support static fabrics as introduced in [Ratliff2020](https://arxiv.org/pdf/2008.02399.pdf).
-The point-robot example was added for easy understanding and does currently not provide support for rollout fabrics and deadlock resolution. To replicate 
+While dynamic fabrics ([Spahn2023](https://ieeexplore.ieee.org/stamp/stamp.jsp?arnumber=10086617)) are applied in the paper, we also support static fabrics as introduced in [Ratliff2020](https://arxiv.org/pdf/2008.02399.pdf).
+The point-robot example was added for easy understanding and does currently not provide support for rollout fabrics and deadlock resolution. 
 
 Which configuration is used can be accessed in `examples/configs`. Here, also the number of robots and the number of collision spheres can be adapted.
 Further parameters can be adapted in 'parameters_manipulators.py'.
