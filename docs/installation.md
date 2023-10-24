@@ -6,6 +6,6 @@ Poetry is a Python packaging and dependency management tool. It allows you to de
 
 For more information, we refer to the [poetry documentation](https://python-poetry.org/docs/).
 
-If your python version is not compatible with the python version of the project or you encounter any other issues checkout [this](docs/issues.md).
+If your python version is not compatible with the python version of the project or you encounter any other issues checkout [this](issues.md).
 
 
