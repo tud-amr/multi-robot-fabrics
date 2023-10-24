@@ -2,19 +2,36 @@
 
 Implementation of multi-robot-fabrics presented in our MRS 2023 paper **"Multi-Robot Local Motion Planning Using Dynamic Optimization Fabrics"**.
 
-This repository is meant to explore the use of fabrics for multiple mobile robots/robotic manipulators.
-Several flavors are explored:
-- Dynamic fabrics applied to a multi-robot scenarios. 
-- Rollout fabrics applied to single-robot and multi-robot scenarios. (Forward predictions over a horizon)
-The 'examples' folder provides runable examples of different scenarios.
-
-The current version of the paper can be cited using the following reference:
-```bibtex
-add ref
-```
+In this paper, we address the problem of real-time
+motion planning for multiple robotic manipulators that operate
+in close proximity. We build upon the concept of dynamic
+fabrics and extend them to multi-robot systems, referred to as
+Multi-Robot Dynamic Fabrics (MRDF). This geometric method
+enables a very high planning frequency for high-dimensional
+systems at the expense of being reactive and prone to deadlocks.
+To detect and resolve deadlocks, we propose Rollout Fabrics
+where MRDF are forward simulated in a decentralized manner.
+We validate the methods in simulated close-proximity pick-and-place scenarios with multiple manipulators, showing high
+success rates and real-time performance.
 
 A **video** showcasing the presented approach can be found [here](https://www.youtube.com/watch?v=jaJBrSecDcM).
 
+The current version of the paper can be cited using the following reference:
+```bibtex
+@article{bakker2023multi,
+  title={Multi-Robot Local Motion Planning Using Dynamic Optimization Fabrics},
+  author={Bakker, Saray and Knoedler, Luzia and Spahn, Max and B{\"o}hmer, Wendelin and Alonso-Mora, Javier},
+  journal={arXiv preprint arXiv:2310.12816},
+  year={2023}
+}
+```
+
+This repository is meant to explore the use of fabrics for multiple mobile robots/robotic manipulators.
+Several flavors are explored:
+- Fabrics applied to multi-robot scenarios. 
+- Rollout fabrics applied to multi-robot scenarios. (Forward predictions over a horizon to detect future deadlocks or other undesired states)
+  
+The 'examples' folder provides runnable examples of different scenarios.
 
 ## Teaser
 <img src="assets/video_rf_cv_2robots.gif" alt="2 Robots applying RF">
