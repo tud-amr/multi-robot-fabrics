@@ -89,4 +89,4 @@ E.g. to run the panda example `python examples/example_pandas_Jointspace.py`.
 ## Troubleshooting
 
 If you run into problems of any kind or have a question, do not hesitate to open an [issue](https://github.com/tud-amr/multi-robot-fabrics/issues) on this repository. 
-Or have a look at the tips we summarized [here](docs/issues.md).
+Or have a look at the tips we summarized [here](docs/tips.md).
