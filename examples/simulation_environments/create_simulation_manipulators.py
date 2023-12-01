@@ -243,7 +243,6 @@ class create_manipulators_simulation:
                         else:
                             y_transform = -0.06
                         link_transformation[0:2, 3] = [0, -y_transform]
-                    link_transformation[0:3, 3] = [0, 0, 0]
                     # --- add the collision sphere in the environment --- #
                     env.add_collision_link(
                         robot_index=i_robot,

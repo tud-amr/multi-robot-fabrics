@@ -283,8 +283,9 @@ def run_panda_example(params, n_steps=5000, planners=[], planners_grasp=[], goal
     pos_xyz = []
     time_deadlock_out = 1000
     exitflag_list = [[] for _ in range(nr_robots)]
-    for i_robot in range(nr_robots):
-        forwardplanners[i_robot].preset_radii_obsts_dyn(radii_obst_dyn=params.r_dyns_obsts[i_robot])
+    if params.ROLLOUT_FABRICS == True:
+        for i_robot in range(nr_robots):
+            forwardplanners[i_robot].preset_radii_obsts_dyn(radii_obst_dyn=params.r_dyns_obsts[i_robot])
 
     # --- Avoid longer computation time due to previously running processes --- #
     time.sleep(1)
