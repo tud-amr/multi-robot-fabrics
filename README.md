@@ -20,11 +20,13 @@ A **video** showcasing the presented approach can be found [here](https://www.yo
 
 The current version of the paper can be cited using the following reference:
 ```bibtex
-@article{bakker2023multi,
+@inproceedings{bakker2023multi,
   title={Multi-Robot Local Motion Planning Using Dynamic Optimization Fabrics},
   author={Bakker, Saray and Knoedler, Luzia and Spahn, Max and B{\"o}hmer, Wendelin and Alonso-Mora, Javier},
-  journal={arXiv preprint arXiv:2310.12816},
-  year={2023}
+  booktitle={2023 International Symposium on Multi-Robot and Multi-Agent Systems (MRS)},
+  pages={149--155},
+  year={2023},
+  organization={IEEE}
 }
 ```
 
