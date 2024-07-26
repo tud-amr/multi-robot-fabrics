@@ -1,0 +1,49 @@
+problem:
+  environment:
+    number_cuboids:
+      dynamic: 0
+      static: 0
+    number_planes: 0
+    number_spheres:
+      dynamic: 0
+      static: 0
+  goal:
+    goal_definition:
+      subgoal0:
+        weight: 1.0
+        is_primary_goal: True
+        indices: [0, 1, 2]
+        parent_link: base_link
+        child_link: arm_end_effector_link
+        desired_position: [-0.24355761, -0.75252747, 0.5]
+        epsilon: 0.05
+        type: staticSubGoal
+  joint_limits:
+    lower_limits:
+    - -10
+    - -10
+    - -10
+    - -2.6896
+    - -2.6197
+    - -2.6197
+    - -2.6002
+    - -2.5302
+    - -2.6002
+    upper_limits:
+    - 10
+    - 10
+    - 10
+    - 2.6896
+    - 2.6197
+    - 2.6197
+    - 2.6002
+    - 2.5302
+    - 2.6002
+  robot_representation:
+    collision_links: {chassis_link:0.1} #, arm_shoulder_link:arm_shoulder_link} #, "arm_forearm_link", "arm_lower_wrist_link", "arm_upper_wrist_link", "arm_end_effector_link"]
+    self_collision_pairs: {}
+fabrics:
+  limit_geometry: -1.0 / (x ** 1) * xdot ** 2
+  limit_finsler: 1.0/(x**2) * (-0.5 * (ca.sign(xdot) - 1)) * xdot**2
+  collision_geometry: -0.2 / (x ** 1) * xdot ** 2
+  collision_finsler:  0.2/(x**2) * (-0.5 * (ca.sign(xdot) - 1)) * xdot ** 2

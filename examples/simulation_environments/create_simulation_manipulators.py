@@ -148,10 +148,6 @@ class create_manipulators_simulation:
         robots = []
         for i_robot in range(self.nr_robots):
             robots.append(GenericUrdfReacher(urdf=self.urdf_files["URDF_file_panda"], mode="vel"))
-        # env: UrdfEnv = gym.make(
-        #     "urdf-env-v0",
-        #     dt=self.dt, robots=robots, render=render
-        # )
         env: UrdfEnv = UrdfEnv(
             robots=robots,
             dt=self.dt,

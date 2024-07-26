@@ -16,7 +16,7 @@ import time
 
 ROBOTTYPE = 'dingo_kinova'
 ROBOTMODEL = 'dingo_kinova'
-
+PLANNER_FROM_CPP = False
 
 def initalize_environment(render=True, nr_obst: int = 0):
     """

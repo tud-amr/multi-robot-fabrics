@@ -116,6 +116,7 @@ class CreatingPlanner:
             limits=self.panda_limits,
         )
         planner.concretize(mode='vel', time_step=0.01)  # be careful that the inputs are here VELOCITIES!!!
+        planner.export_as_c("controller_panda"+str(i_robot)+".c")
         return planner, goal
 
     def define_planners(self, params):
@@ -152,6 +153,7 @@ class CreatingPlanner:
             planners.append(planner_panda_i)
             goal_structs.append(goal_struct_panda_i)
             planners_grasp.append(planner_panda_grasp_i)
+
         return planners, planners_grasp, goal_structs
 
     def define_rollout_planners(self, params, fk_dict=None, goal_structs=None, n_steps=100):
