@@ -96,7 +96,7 @@ class UtilsKinematics(object):
         with open(urdf_link, "r") as file:
             urdf = file.read()
 
-        fk = GenericURDFFk(urdf, rootLink="panda_link0", end_link="panda_leftfinger")
+        fk = GenericURDFFk(urdf, root_link="panda_link0", end_links=["panda_leftfinger"])
         n = fk.n()
         q_ca = ca.SX.sym("q", n)
         qdot_ca = ca.SX.sym("qdot", n)
@@ -104,9 +104,8 @@ class UtilsKinematics(object):
             fk.set_mount_transformation(mount_transformation=mount_transform[i_robot])
             for i_link, link in enumerate(collision_links[i_robot]):
                 for i_sphere in range(n_obst_per_link):
-                    fk_spheres_i = fk.fk(q_ca, parent_link="panda_link0", child_link=link,
-                                      link_transformation=sphere_transformations[i_robot][i_link][i_sphere],
-                                      positionOnly=True)
+                    fk_spheres_i = fk.casadi(q_ca, parent_link="panda_link0", child_link=link,
+                                      link_transformation=sphere_transformations[i_robot][i_link][i_sphere])[0:3, 3]
                     vel_sphere_i = ca.jacobian(fk_spheres_i, q_ca) @ qdot_ca
                     fk_spheres_sym[i_robot]["fk_sym"].append(fk_spheres_i)
                     fk_spheres_sym[i_robot]["vel_sym"].append(vel_sphere_i)
