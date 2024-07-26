@@ -100,6 +100,11 @@ class exampe_pandas_jointspace():
         for i_robot in range(nr_robots):
             dof_index.append(dof_index[i_robot]+dof[0]+2)
 
+        # --- rollout fabrics initialize ---#
+        import socket
+        # Define the server address and port
+        server_address = ('127.0.0.1', 8080)
+
         # --- Velocity and acceleration limits --- #
         limits_action = ()
         limit_vel_panda = np.array([2.1750, 2.1750, 2.1750, 2.1750, 2.61, 2.61, 2.61])
@@ -155,6 +160,7 @@ class exampe_pandas_jointspace():
 
         # --- Loop over all steps over time -- #
         for w in range(n_steps):
+
             t_start_loop = time.perf_counter()
 
             # --- define states --- #
