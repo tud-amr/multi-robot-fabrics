@@ -148,9 +148,11 @@ class create_manipulators_simulation:
         robots = []
         for i_robot in range(self.nr_robots):
             robots.append(GenericUrdfReacher(urdf=self.urdf_files["URDF_file_panda"], mode="vel"))
-        env: UrdfEnv = gym.make(
-            "urdf-env-v0",
-            dt=self.dt, robots=robots, render=render
+        env: UrdfEnv = UrdfEnv(
+            robots=robots,
+            dt=self.dt,
+            render=render,
+            observation_checking=False,
         )
         self.fk_robots = robots
         full_sensor = FullSensor(
@@ -197,7 +199,7 @@ class create_manipulators_simulation:
         for i_robot in range(nr_robots):
             links_urdf = self.collision_links_nrs[i_robot]
             if self.robot_types[i_robot] == "panda":
-                joint_map_urdf_env = env.env.env._robots[0]._urdf_robot._joint_map
+                joint_map_urdf_env = env._robots[0]._urdf_robot._joint_map
                 links_urdf = [list(joint_map_urdf_env.keys()).index(link) for link in
                               dicts_collision_links[i_robot]["link_nr"]]
             dicts_collision_links[i_robot]["link_nr_urdf"] = links_urdf
