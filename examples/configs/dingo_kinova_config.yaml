@@ -6,7 +6,7 @@ problem:
     number_planes: 0
     number_spheres:
       dynamic: 0
-      static: 0
+      static: 2
   goal:
     goal_definition:
       subgoal0:
