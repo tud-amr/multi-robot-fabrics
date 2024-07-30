@@ -12,8 +12,8 @@ from robotmodels.utils.robotmodel import RobotModel, LocalRobotModel
 from fabrics.planner.parameterized_planner import ParameterizedFabricPlanner
 import copy
 import yaml
-ROBOTTYPE = 'dingo_kinova'
-ROBOTMODEL = 'dingo_kinova'
+ROBOTTYPE = 'panda'
+ROBOTMODEL = 'panda'
 
 CONFIG_FILE = "configs/"+ROBOTTYPE+"_config.yaml"
 with open(CONFIG_FILE, 'r') as config_file:

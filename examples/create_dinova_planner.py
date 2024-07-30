@@ -28,7 +28,7 @@ def initalize_environment(render=True, nr_obst: int = 0):
     Adds obstacles and goal visualizaion to the environment based and
     steps the simulation once.
     """
-    robot_model = RobotModel('dingo_kinova', model_name='dingo_kinova')
+    robot_model = RobotModel(ROBOTTYPE, model_name=ROBOTMODEL)
     urdf_file = robot_model.get_urdf_path()
     robots = [
         GenericUrdfReacher(urdf=urdf_file, mode="acc"),
