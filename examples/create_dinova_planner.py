@@ -118,37 +118,6 @@ def set_planner(goal: GoalComposition, nr_obst: int = 0, degrees_of_freedom: int
     )
     planner.load_fabrics_configuration(CONFIG_FABRICS)
     planner.load_problem_configuration(CONFIG_PROBLEM)
-    # planner.concretize()
-    # collision_links = [
-    #     "chassis_link",
-    #     "arm_shoulder_link",
-    #     "arm_forearm_link",
-    #     "arm_lower_wrist_link",
-    #     "arm_upper_wrist_link",
-    #     "arm_end_effector_link"
-    # ]
-    # dingo_limits = np.array([
-    #     [-10, 10],
-    #     [-10, 10],
-    #     [-10, 10]]
-    # )
-    # gen3lite_limits = np.array([
-    #     [-154.1, 154.1],
-    #     [-150.1, 150.1],
-    #     [-150.1, 150.1],
-    #     [-148.98, 148.98],
-    #     [-144.97, 145.0],
-    #     [-148.98, 148.98]
-    # ]) * np.pi/180
-    # dingo_kinova_limits = list(np.concatenate((dingo_limits, gen3lite_limits)))
-    # # The planner hides all the logic behind the function set_components.
-    # planner.set_components(
-    #     collision_links=collision_links,
-    #     goal=goal,
-    #     number_obstacles=nr_obst,
-    #     number_plane_constraints=0,
-    #     limits=dingo_kinova_limits,
-    # )
     planner.concretize()
     planner.export_as_c("controller_dinova.c")
     return planner
@@ -174,7 +143,7 @@ def run_kinova_example(n_steps=5000, render=True, dof=9):
             radius_obsts=[ob_robot['FullSensor']['obstacles'][nr_obst + 0]['size'],
                           ob_robot['FullSensor']['obstacles'][nr_obst + 1]['size']],
             radius_obst_1=ob_robot['FullSensor']['obstacles'][nr_obst]['size'],
-            radius_body_chassis_link=0.2,
+            radius_body_chassis_link=0.4,
             radius_body_arm_shoulder_link=0.1,
             radius_body_arm_end_effector_link = 0.1,
             radius_body_arm_upper_wrist_link = 0.1,

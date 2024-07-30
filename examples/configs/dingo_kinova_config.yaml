@@ -40,7 +40,25 @@ problem:
     - 2.5302
     - 2.6002
   robot_representation:
-    collision_links: {chassis_link:0.1} #, arm_shoulder_link:arm_shoulder_link} #, "arm_forearm_link", "arm_lower_wrist_link", "arm_upper_wrist_link", "arm_end_effector_link"]
+    collision_links:
+      chassis_link:
+        sphere:
+          radius: 0.4
+      arm_shoulder_link:
+        sphere:
+          radius: 0.1
+      arm_forearm_link:
+        sphere:
+          radius: 0.1
+      arm_lower_wrist_link:
+        sphere:
+          radius: 0.1
+      arm_upper_wrist_link:
+        sphere:
+          radius: 0.1
+      arm_end_effector_link:
+        sphere:
+          radius: 0.1
     self_collision_pairs: {}
 fabrics:
   limit_geometry: -1.0 / (x ** 1) * xdot ** 2
