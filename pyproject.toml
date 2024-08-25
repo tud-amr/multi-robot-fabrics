@@ -15,13 +15,14 @@ matplotlib = "^3.7.1"
 texttable = "^1.6.6"
 latextable ="^1.0.0"
 fabrics = "0.9.5"
-urdfenvs = "^0.8.6"
+urdfenvs = "^0.9.14"
 forwardkinematics = "^1.2.3"
 casadi = "<3.6"
 seaborn = "^0.12.2"
 pytest = "6.2.5"
 pylint = "^2.17.5"
 pytest-cov = "^4.1.0"
+robotmodels = "^0.1.9"
 
 [tool.poetry.group.dev]
 optional = true
